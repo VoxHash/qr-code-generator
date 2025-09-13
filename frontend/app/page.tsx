@@ -28,7 +28,9 @@ export default function Home() {
 
   const fetchQRCodes = async () => {
     try {
+      console.log('Fetching QR codes from:', `${API_URL}/api/qr`);
       const response = await axios.get(`${API_URL}/api/qr`);
+      console.log('QR codes response:', response.data);
       setQrCodes(response.data);
     } catch (err) {
       console.error('Error fetching QR codes:', err);
@@ -43,15 +45,19 @@ export default function Home() {
     setError('');
 
     try {
+      console.log('Generating QR code with:', { content, size, format: 'png' });
+      console.log('API URL:', `${API_URL}/api/qr/generate`);
       const response = await axios.post(`${API_URL}/api/qr/generate`, {
         content,
         size,
         format: 'png'
       });
       
+      console.log('QR generation response:', response.data);
       setQrCode(response.data);
       fetchQRCodes(); // Refresh the list
     } catch (err: any) {
+      console.error('QR generation error:', err);
       setError(err.response?.data?.error || 'Failed to generate QR code');
     } finally {
       setLoading(false);
