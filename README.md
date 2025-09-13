@@ -8,13 +8,13 @@ A modern, full-stack QR code generator application built with Next.js, Express.j
 [![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org/)
 [![Next.js](https://img.shields.io/badge/Next.js-14-black.svg)](https://nextjs.org/)
 
-> **Built by [@VoxHash](https://github.com/VoxHash)** - AI Engineer | Blockchain, Web3 and Smart Contracts
+> **Built by [@VoxHash](https://github.com/VoxHash)**
 
 ## 🎯 Demo
 
 ![QR Code Generator Demo](https://via.placeholder.com/800x400/1a1a1a/ffffff?text=QR+Code+Generator+Demo)
 
-> **Live Demo**: [Coming Soon] | **Video Demo**: [Watch on YouTube](https://youtube.com)
+> **Live Demo**: [Coming Soon] | **Video Demo**: [Watch on YouTube](https://youtube.com/@VoxHash)
 
 ## ✨ Features
 
@@ -30,7 +30,7 @@ A modern, full-stack QR code generator application built with Next.js, Express.j
 
 ## 🎯 Why This Project?
 
-As an **AI Engineer** with expertise in **Blockchain, Web3, and Smart Contracts**, I built this QR Code Generator to demonstrate:
+I built this QR Code Generator to demonstrate:
 
 - **Full-Stack Development Skills**: Modern React/Next.js frontend with Express.js backend
 - **Database Design**: Efficient data modeling with Prisma ORM and PostgreSQL
@@ -71,7 +71,7 @@ This project showcases my ability to create **production-ready applications** th
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/VoxHash/qr-code-generator
    cd qr-code-generator
    ```
 
@@ -89,7 +89,7 @@ This project showcases my ability to create **production-ready applications** th
 
 1. **Clone and setup**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/VoxHash/qr-code-generator
    cd qr-code-generator
    ```
 
@@ -253,7 +253,7 @@ NEXT_PUBLIC_API_URL=http://localhost:3001
 
 ## 🤝 Contributing
 
-Contributions are welcome! This project is part of my portfolio as an AI Engineer. Here's how you can contribute:
+Contributions are welcome! Here's how you can contribute:
 
 1. **Fork the repository**
 2. **Create a feature branch** (`git checkout -b feature/amazing-feature`)

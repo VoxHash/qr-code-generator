@@ -102,7 +102,31 @@ app.get('/api/qr', async (req, res) => {
       orderBy: { createdAt: 'desc' }
     });
 
-    res.json(qrCodes);
+    // Generate QR code data URLs for each record
+    const qrCodesWithImages = await Promise.all(
+      qrCodes.map(async (qr) => {
+        try {
+          const qrDataURL = await QRCode.toDataURL(qr.content, {
+            width: qr.size,
+            margin: 2,
+            color: {
+              dark: '#000000',
+              light: '#FFFFFF'
+            }
+          });
+          
+          return {
+            ...qr,
+            dataURL: qrDataURL
+          };
+        } catch (error) {
+          console.error('Error generating QR code for record:', qr.id, error);
+          return qr; // Return without dataURL if generation fails
+        }
+      })
+    );
+
+    res.json(qrCodesWithImages);
   } catch (error) {
     console.error('Error fetching QR codes:', error);
     res.status(500).json({ error: 'Failed to fetch QR codes' });
