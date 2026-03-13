@@ -1,0 +1,38 @@
+services:
+  # PostgreSQL Database
+  - type: pg
+    name: qrcode-db
+    plan: free
+    databaseName: qrcode_db
+    user: postgres
+
+  # Backend API
+  - type: web
+    name: qrcode-backend
+    env: node
+    plan: free
+    buildCommand: cd backend && npm install && npm run db:generate
+    startCommand: cd backend && npm start
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: qrcode-db
+          property: connectionString
+      - key: PORT
+        value: 3001
+      - key: NODE_ENV
+        value: production
+
+  # Frontend
+  - type: web
+    name: qrcode-frontend
+    env: node
+    plan: free
+    buildCommand: cd frontend && npm install && npm run build
+    startCommand: cd frontend && npm start
+    envVars:
+      - key: NEXT_PUBLIC_API_URL
+        fromService:
+          name: qrcode-backend
+          type: web
+          property: host

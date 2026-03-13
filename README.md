@@ -135,6 +135,28 @@ We welcome PRs! Please read [CONTRIBUTING.md](CONTRIBUTING.md) and follow the PR
 
 Please report vulnerabilities via [SECURITY.md](SECURITY.md).
 
+## 🚀 Deployment
+
+This full-stack application can be deployed on:
+
+- **Railway** (Recommended) - Full-stack with database support
+- **Render** - Free tier available
+- **Vercel** - Frontend only (backend needs separate hosting)
+- **Fly.io** - Docker-based deployment
+
+See [docs/deployment.md](docs/deployment.md) for detailed deployment instructions.
+
+### Quick Deploy on Railway
+
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template)
+
+1. Click the button above or visit [railway.app](https://railway.app)
+2. Connect your GitHub repository
+3. Add PostgreSQL database
+4. Deploy backend and frontend services
+5. Set environment variables
+6. Done!
+
 ## 📄 License
 
 This project is licensed under the terms in [LICENSE](LICENSE).
