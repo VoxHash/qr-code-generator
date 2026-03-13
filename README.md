@@ -1,314 +1,151 @@
-# QR Code Generator 🚀
+# QR Code Generator
 
-A modern, full-stack QR code generator application built with Next.js, Express.js, and PostgreSQL. Generate, store, and manage QR codes with a beautiful, responsive web interface.
+[![Build](https://img.shields.io/github/actions/workflow/status/VoxHash/qr-code-generator/ci.yml)](https://github.com/VoxHash/qr-code-generator/actions)
+[![License](https://img.shields.io/github/license/VoxHash/qr-code-generator)](LICENSE)
+[![Release](https://img.shields.io/github/v/release/VoxHash/qr-code-generator?sort=semver)](https://github.com/VoxHash/qr-code-generator/releases)
+[![Docs](https://img.shields.io/badge/docs-website-blue)](./docs/index.md)
 
-[![GitHub stars](https://img.shields.io/github/stars/VoxHash/qr-code-generator?style=social)](https://github.com/VoxHash/qr-code-generator)
-[![GitHub forks](https://img.shields.io/github/forks/VoxHash/qr-code-generator?style=social)](https://github.com/VoxHash/qr-code-generator/fork)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org/)
-[![Next.js](https://img.shields.io/badge/Next.js-14-black.svg)](https://nextjs.org/)
-
-> **Built by [@VoxHash](https://github.com/VoxHash)**
-
-## 🎯 Demo
-
-![QR Code Generator Demo](https://via.placeholder.com/800x400/1a1a1a/ffffff?text=QR+Code+Generator+Demo)
-
-> **Live Demo**: [Coming Soon] | **Video Demo**: [Watch on YouTube](https://youtube.com/@VoxHash)
+> A modern, full-stack QR code generator application built with Next.js, Express.js, and PostgreSQL. Generate, store, and manage QR codes with a beautiful, responsive web interface.
 
 ## ✨ Features
 
-- **🔗 QR Code Generation**: Create QR codes from any text, URL, or content
-- **📏 Customizable Size**: Adjustable QR code dimensions (128px - 512px)
-- **👀 Real-time Preview**: See your QR code instantly as you type
-- **💾 Download Support**: Download generated QR codes as PNG images
-- **📚 History Management**: View and manage previously generated QR codes
-- **🗄️ Database Storage**: Persistent storage with PostgreSQL and Prisma ORM
-- **📱 Responsive Design**: Beautiful UI that works on all devices
-- **🐳 Docker Support**: Easy deployment with Docker Compose
-- **⚡ Fast & Modern**: Built with the latest web technologies
+- **QR Code Generation**: Create QR codes from any text, URL, or content
+- **Customizable Size**: Adjustable QR code dimensions (128px - 512px)
+- **Real-time Preview**: See your QR code instantly as you generate
+- **Download Support**: Download generated QR codes as PNG images
+- **History Management**: View and manage previously generated QR codes
+- **Database Storage**: Persistent storage with PostgreSQL and Prisma ORM
+- **Responsive Design**: Beautiful UI that works on all devices
+- **Docker Support**: Easy deployment with Docker Compose
 
-## 🎯 Why This Project?
+## 🧭 Table of Contents
 
-I built this QR Code Generator to demonstrate:
-
-- **Full-Stack Development Skills**: Modern React/Next.js frontend with Express.js backend
-- **Database Design**: Efficient data modeling with Prisma ORM and PostgreSQL
-- **API Development**: RESTful API design with proper error handling
-- **DevOps Practices**: Docker containerization and multi-service orchestration
-- **UI/UX Design**: Responsive, modern interface with Tailwind CSS
-- **Production Readiness**: Proper configuration, documentation, and deployment setup
-
-This project showcases my ability to create **production-ready applications** that solve real-world problems with clean, maintainable code.
-
-## 🛠️ Tech Stack
-
-### Frontend
-- **Next.js 14** - React framework with App Router
-- **TypeScript** - Type-safe JavaScript
-- **Tailwind CSS** - Utility-first CSS framework
-- **Axios** - HTTP client for API calls
-
-### Backend
-- **Express.js** - Node.js web framework
-- **Prisma** - Modern database ORM
-- **PostgreSQL** - Relational database
-- **QRCode** - QR code generation library
-
-### DevOps
-- **Docker** - Containerization
-- **Docker Compose** - Multi-container orchestration
-
-## 📋 Prerequisites
-
-- Node.js 18+ 
-- Docker and Docker Compose
-- Git
+- [Quick Start](#-quick-start)
+- [Installation](#-installation)
+- [Usage](#-usage)
+- [Configuration](#-configuration)
+- [Examples](#-examples)
+- [Architecture](#-architecture)
+- [Roadmap](#-roadmap)
+- [Contributing](#-contributing)
+- [License](#-license)
 
 ## 🚀 Quick Start
 
-### Option 1: Docker Compose (Recommended)
+```bash
+# 1) Clone the repository
+git clone https://github.com/VoxHash/qr-code-generator.git
+cd qr-code-generator
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/VoxHash/qr-code-generator
-   cd qr-code-generator
-   ```
+# 2) Start with Docker Compose (Recommended)
+docker-compose up --build
 
-2. **Start all services**
-   ```bash
-   docker-compose up --build
-   ```
+# 3) Access the application
+# Frontend: http://localhost:3000
+# Backend API: http://localhost:3001
+```
 
-3. **Access the application**
-   - Frontend: http://localhost:3000
-   - Backend API: http://localhost:3001
-   - Database: localhost:5432
+## 💿 Installation
 
-### Option 2: Local Development
+See [docs/installation.md](docs/installation.md) for platform-specific steps.
 
-1. **Clone and setup**
-   ```bash
-   git clone https://github.com/VoxHash/qr-code-generator
-   cd qr-code-generator
-   ```
+### Prerequisites
 
-2. **Setup Backend**
-   ```bash
-   cd backend
-   npm install
-   cp .env.example .env
-   npx prisma generate
-   npx prisma db push
-   npm run dev
-   ```
+- Node.js 18+
+- Docker and Docker Compose (optional)
+- Git
 
-3. **Setup Frontend**
-   ```bash
-   cd ../frontend
-   npm install
-   cp .env.example .env
-   npm run dev
-   ```
+### Local Development Setup
 
-4. **Access the application**
-   - Frontend: http://localhost:3000
-   - Backend API: http://localhost:3001
+```bash
+# Backend
+cd backend
+npm install
+cp .env.example .env
+npm run db:generate
+npm run db:push
+npm run dev
 
-## 📖 API Documentation
+# Frontend (in another terminal)
+cd frontend
+npm install
+cp .env.example .env.local
+npm run dev
+```
 
-### Endpoints
+## 🛠 Usage
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/health` | Health check |
-| POST | `/api/qr/generate` | Generate new QR code |
-| GET | `/api/qr` | Get all QR codes |
-| GET | `/api/qr/:id` | Get specific QR code |
-| DELETE | `/api/qr/:id` | Delete QR code |
+Basic usage here. Advanced usage in [docs/usage.md](docs/usage.md).
 
 ### Generate QR Code
 
+1. Open the web interface at http://localhost:3000
+2. Enter the content you want to encode (text, URL, etc.)
+3. Adjust the size slider (128px - 512px)
+4. Click "Generate QR Code"
+5. Download or manage your QR codes
+
+### API Usage
+
 ```bash
-POST /api/qr/generate
-Content-Type: application/json
+# Generate QR code
+curl -X POST http://localhost:3001/api/qr/generate \
+  -H "Content-Type: application/json" \
+  -d '{"content": "https://voxhash.dev", "size": 256, "format": "png"}'
 
-{
-  "content": "Hello World",
-  "size": 256,
-  "format": "png"
-}
+# Get all QR codes
+curl http://localhost:3001/api/qr
+
+# Delete QR code
+curl -X DELETE http://localhost:3001/api/qr/{id}
 ```
 
-**Response:**
-```json
-{
-  "id": "clx123...",
-  "content": "Hello World",
-  "size": 256,
-  "format": "png",
-  "dataURL": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA...",
-  "createdAt": "2024-01-01T00:00:00.000Z"
-}
-```
+See [docs/api.md](docs/api.md) for complete API reference.
 
-## 🗄️ Database Schema
+## ⚙️ Configuration
 
-```prisma
-model QRCode {
-  id          String   @id @default(cuid())
-  content     String
-  size        Int      @default(256)
-  format      String   @default("png")
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-}
-```
+| Variable | Description | Default |
+|---|---|---|
+| `DATABASE_URL` | PostgreSQL connection string | `postgresql://postgres:password@localhost:5432/qrcode_db` |
+| `PORT` | Backend server port | `3001` |
+| `NEXT_PUBLIC_API_URL` | Frontend API endpoint | `http://localhost:3001` |
 
-## 🐳 Docker Configuration
+Full reference: [docs/configuration.md](docs/configuration.md)
 
-The project includes Docker configuration for easy deployment:
+## 📚 Examples
 
-- **PostgreSQL**: Database service
-- **Backend**: Express.js API server
-- **Frontend**: Next.js application
+- Start here: [docs/examples/example-01.md](docs/examples/example-01.md)
+- More: [docs/examples/](docs/examples/)
 
-All services are configured with proper networking and volume mounts for development.
+## 🧩 Architecture
 
-## 🧪 Development
+High-level overview: The application consists of a Next.js frontend, Express.js backend API, and PostgreSQL database. The frontend communicates with the backend via REST API, and the backend uses Prisma ORM for database operations.
 
-### Backend Development
-```bash
-cd backend
-npm run dev          # Start development server
-npm run db:generate  # Generate Prisma client
-npm run db:push      # Push schema to database
-npm run db:migrate   # Run database migrations
-```
+See [docs/architecture.md](docs/architecture.md) for detailed architecture documentation.
 
-### Frontend Development
-```bash
-cd frontend
-npm run dev    # Start development server
-npm run build  # Build for production
-npm run start  # Start production server
-npm run lint   # Run ESLint
-```
+## 🗺 Roadmap
 
-## 📁 Project Structure
-
-```
-qr-code-generator/
-├── backend/
-│   ├── src/
-│   │   └── index.js          # Express server
-│   ├── prisma/
-│   │   └── schema.prisma     # Database schema
-│   ├── Dockerfile
-│   └── package.json
-├── frontend/
-│   ├── app/
-│   │   ├── page.tsx          # Main page component
-│   │   ├── layout.tsx        # Root layout
-│   │   └── globals.css       # Global styles
-│   ├── Dockerfile
-│   └── package.json
-├── docker-compose.yml
-└── README.md
-```
-
-## 🔧 Environment Variables
-
-### Backend (.env)
-```
-DATABASE_URL="postgresql://postgres:password@localhost:5432/qrcode_db"
-PORT=3001
-```
-
-### Frontend (.env.local)
-```
-NEXT_PUBLIC_API_URL=http://localhost:3001
-```
-
-## 🚀 Deployment
-
-### Production with Docker
-
-1. **Build and start services**
-   ```bash
-   docker-compose -f docker-compose.yml up --build -d
-   ```
-
-2. **Run database migrations**
-   ```bash
-   docker-compose exec backend npx prisma db push
-   ```
-
-### Manual Deployment
-
-1. **Setup database** (PostgreSQL)
-2. **Deploy backend** (Node.js/Express)
-3. **Deploy frontend** (Next.js)
-4. **Configure environment variables**
+Planned milestones live in [ROADMAP.md](ROADMAP.md). For changes, see [CHANGELOG.md](CHANGELOG.md).
 
 ## 🤝 Contributing
 
-Contributions are welcome! Here's how you can contribute:
+We welcome PRs! Please read [CONTRIBUTING.md](CONTRIBUTING.md) and follow the PR template.
 
-1. **Fork the repository**
-2. **Create a feature branch** (`git checkout -b feature/amazing-feature`)
-3. **Commit your changes** (`git commit -m 'Add some amazing feature'`)
-4. **Push to the branch** (`git push origin feature/amazing-feature`)
-5. **Open a Pull Request**
+## 🔒 Security
 
-### Development Guidelines
-- Follow the existing code style
-- Add tests for new features
-- Update documentation as needed
-- Ensure all checks pass
-
-### Ideas for Contributions
-- Add QR code scanning functionality
-- Implement custom QR code styling
-- Add batch QR code generation
-- Create mobile app version
-- Add analytics and tracking features
+Please report vulnerabilities via [SECURITY.md](SECURITY.md).
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the terms in [LICENSE](LICENSE).
 
-## 🎯 Future Enhancements
+## 📞 Support
 
-- [ ] QR code scanning functionality
-- [ ] Batch QR code generation
-- [ ] Custom QR code styling (colors, logos)
-- [ ] QR code analytics and tracking
-- [ ] User authentication and accounts
-- [ ] QR code templates and presets
-- [ ] API rate limiting and security
-- [ ] Mobile app (React Native)
-
-## 📞 Connect with Me
-
-- **GitHub**: [@VoxHash](https://github.com/VoxHash)
-- **LinkedIn**: [Connect with me](https://linkedin.com/in/voxhash)
-- **Portfolio**: [View my work](https://voxhash.dev)
-- **Email**: [Get in touch](mailto:contact@voxhash.dev)
-
-## 🌟 Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=VoxHash/qr-code-generator&type=Date)](https://star-history.com/#VoxHash/qr-code-generator&Date)
+- **Documentation**: [docs/](docs/)
+- **Issues**: [GitHub Issues](https://github.com/VoxHash/qr-code-generator/issues)
+- **Email**: contact@voxhash.dev
+- **Support Guide**: [SUPPORT.md](SUPPORT.md)
 
 ---
 
-<div align="center">
-
 **Built with ❤️ by [@VoxHash](https://github.com/VoxHash)**
-
-*AI Engineer | Blockchain, Web3 and Smart Contracts*
-
-[![GitHub followers](https://img.shields.io/github/followers/VoxHash?style=social)](https://github.com/VoxHash)
-[![Twitter Follow](https://img.shields.io/twitter/follow/VoxHash?style=social)](https://twitter.com/VoxHash)
-
-</div>

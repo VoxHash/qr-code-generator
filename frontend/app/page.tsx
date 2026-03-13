@@ -1,7 +1,8 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
+import Image from 'next/image';
 
 interface QRCode {
   id: string;
@@ -22,11 +23,7 @@ export default function Home() {
 
   const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
 
-  useEffect(() => {
-    fetchQRCodes();
-  }, []);
-
-  const fetchQRCodes = async () => {
+  const fetchQRCodes = useCallback(async () => {
     try {
       console.log('Fetching QR codes from:', `${API_URL}/api/qr`);
       const response = await axios.get(`${API_URL}/api/qr`);
@@ -35,7 +32,11 @@ export default function Home() {
     } catch (err) {
       console.error('Error fetching QR codes:', err);
     }
-  };
+  }, [API_URL]);
+
+  useEffect(() => {
+    fetchQRCodes();
+  }, [fetchQRCodes]);
 
   const generateQRCode = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -140,7 +141,7 @@ export default function Home() {
             </form>
 
             {error && (
-              <div className="mt-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded">
+              <div role="alert" className="mt-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded">
                 {error}
               </div>
             )}
@@ -150,9 +151,11 @@ export default function Home() {
               <div className="mt-6 p-4 bg-gray-50 rounded-lg">
                 <h3 className="text-lg font-medium mb-3">Generated QR Code</h3>
                 <div className="text-center">
-                  <img
+                  <Image
                     src={qrCode.dataURL}
                     alt="Generated QR Code"
+                    width={qrCode.size}
+                    height={qrCode.size}
                     className="mx-auto border border-gray-300 rounded"
                   />
                   <div className="mt-3 space-x-2">
@@ -185,9 +188,11 @@ export default function Home() {
                 {qrCodes.map((qr) => (
                   <div key={qr.id} className="flex items-center justify-between p-3 bg-gray-50 rounded border">
                     <div className="flex items-center space-x-3">
-                      <img
+                      <Image
                         src={qr.dataURL}
                         alt="QR Code"
+                        width={48}
+                        height={48}
                         className="w-12 h-12 border border-gray-300 rounded"
                       />
                       <div>
