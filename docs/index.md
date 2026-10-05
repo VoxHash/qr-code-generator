@@ -12,7 +12,6 @@ Welcome to the QR Code Generator documentation!
 
 - [Usage](usage.md) - How to use the application
 - [Configuration](configuration.md) - Configuration options
-- [Deployment](deployment.md) - Deployment options and guides
 - [CLI](cli.md) - Command-line interface (if applicable)
 - [API](api.md) - API reference documentation
 
@@ -26,5 +25,4 @@ Welcome to the QR Code Generator documentation!
 ## Contributing
 
 - [Contributing Guide](../CONTRIBUTING.md) - How to contribute
-- [Development Goals](../DEVELOPMENT_GOALS.md) - Technical roadmap
 - [Roadmap](../ROADMAP.md) - Feature roadmap

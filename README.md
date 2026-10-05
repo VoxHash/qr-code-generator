@@ -51,8 +51,8 @@ See [docs/installation.md](docs/installation.md) for platform-specific steps.
 
 ### Prerequisites
 
-- Node.js 18+
-- Docker and Docker Compose (optional)
+- Node.js 20+ (CI uses Node 24)
+- Docker and Docker Compose (optional, recommended for PostgreSQL)
 - Git
 
 ### Local Development Setup
@@ -137,25 +137,9 @@ Please report vulnerabilities via [SECURITY.md](SECURITY.md).
 
 ## 🚀 Deployment
 
-This full-stack application can be deployed on:
+Deploy with Docker Compose locally, or host on Railway / Render (full stack) or Vercel (frontend only with a separate API).
 
-- **Railway** (Recommended) - Full-stack with database support
-- **Render** - Free tier available
-- **Vercel** - Frontend only (backend needs separate hosting)
-- **Fly.io** - Docker-based deployment
-
-See [docs/deployment.md](docs/deployment.md) for detailed deployment instructions.
-
-### Quick Deploy on Railway
-
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template)
-
-1. Click the button above or visit [railway.app](https://railway.app)
-2. Connect your GitHub repository
-3. Add PostgreSQL database
-4. Deploy backend and frontend services
-5. Set environment variables
-6. Done!
+See [docs/installation.md](docs/installation.md#deployment) for step-by-step deployment instructions.
 
 ## 📄 License
 

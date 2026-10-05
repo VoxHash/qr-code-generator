@@ -1,51 +1,49 @@
 # Roadmap — QR Code Generator
 
-This document outlines the planned features and milestones for QR Code Generator.
+Planned work for QR Code Generator, aligned with the current v0.1.x full-stack baseline (Next.js frontend, Express API, Prisma + PostgreSQL, Docker Compose).
 
-## Q2 2026
+## Now (v0.2.x)
 
-### Short-term Goals
-- [ ] Add QR code scanning functionality
-- [ ] Implement batch QR code generation
-- [ ] Add custom QR code styling (colors, logos)
-- [ ] Improve error handling and user feedback
-- [ ] Add unit and integration tests
-- [ ] Set up CI/CD pipeline
+Ship the highest-value product and quality gaps first:
 
-### Mid-term Goals
-- [ ] User authentication and accounts
-- [ ] QR code analytics and tracking
-- [ ] QR code templates and presets
-- [ ] API rate limiting and security enhancements
-- [ ] Performance optimizations
-- [ ] Mobile-responsive improvements
+- [ ] Custom QR styling (colors, logo overlay)
+- [ ] Export formats beyond PNG (SVG first)
+- [ ] Stronger input validation and user-facing error messages
+- [ ] Unit/integration tests for API generate/list/delete paths
+- [ ] Keep CI green (lint, frontend build, Prisma validate, Docker build)
 
-## Future
+## Next (v0.3.x)
 
-### Long-term Vision
-- [ ] Mobile app (React Native)
-- [ ] QR code batch export (PDF, CSV)
-- [ ] Custom QR code error correction levels
-- [ ] QR code version selection
-- [ ] Multi-language support (i18n)
-- [ ] Dark mode theme
-- [ ] QR code history search and filtering
-- [ ] Export QR codes to various formats (SVG, PDF)
-- [ ] QR code API for third-party integrations
-- [ ] Webhook support for QR code events
+- [ ] Batch generation
+- [ ] History search/filter
+- [ ] QR templates/presets
+- [ ] API rate limiting for public deployments
+- [ ] Authenticated multi-user QR libraries (optional accounts)
 
-### Stretch Goals
-- [ ] Real-time collaboration features
-- [ ] QR code analytics dashboard
-- [ ] Custom domain support
-- [ ] Enterprise features and pricing tiers
-- [ ] QR code campaign management
-- [ ] Integration with popular services (Stripe, PayPal, etc.)
+## Later
+
+- [ ] Camera-based QR scanning
+- [ ] Analytics/tracking for generated codes
+- [ ] Error-correction / version controls
+- [ ] i18n and theme options
+- [ ] CLI package for scripting
+- [ ] Mobile client (only if web usage justifies it)
+
+## Explicitly deferred
+
+These stay out of scope until the core generator is polished and tested:
+
+- Real-time collaboration
+- Enterprise multi-tenant billing
+- Microservices / message queues
+- Payment-provider campaign tooling
+
+## Success criteria
+
+- Documented install path works on a clean machine with Node 20+ and Docker
+- API health + generate/list/delete verified in CI or release checklist
+- No critical dependency vulnerabilities left untracked in SECURITY.md reports
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for how to contribute to these goals.
-
-## Feedback
-
-Have ideas? Open an issue or discussion to share your thoughts!
+See [CONTRIBUTING.md](CONTRIBUTING.md). Ideas and bugs: [GitHub Issues](https://github.com/VoxHash/qr-code-generator/issues).

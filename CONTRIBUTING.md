@@ -10,7 +10,7 @@ Please read and follow our [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).
 
 ### Prerequisites
 
-- Node.js 18+ 
+- Node.js 20+ (CI uses Node 24)
 - Docker and Docker Compose (optional, for database)
 - Git
 

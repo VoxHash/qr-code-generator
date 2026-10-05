@@ -6,10 +6,25 @@ Platform-specific installation instructions for QR Code Generator.
 
 Before installing, ensure you have:
 
-- **Node.js** 18.0.0 or higher ([Download](https://nodejs.org/))
-- **npm** or **yarn** package manager
-- **Docker and Docker Compose** (optional, for database)
+- **Node.js** 20.0.0 or higher (CI uses Node 24; [Download](https://nodejs.org/))
+- **npm** package manager
+- **Docker and Docker Compose** (optional, recommended for PostgreSQL)
 - **Git** ([Download](https://git-scm.com/))
+
+## Required environment variables
+
+| Variable | Where | Required | Purpose |
+|---|---|---|---|
+| `DATABASE_URL` | `backend/.env` | Yes | PostgreSQL connection string |
+| `PORT` | `backend/.env` | No (default `3001`) | Backend listen port |
+| `NEXT_PUBLIC_API_URL` | `frontend/.env.local` | No (default `http://localhost:3001`) | Frontend → API base URL |
+
+Copy from the committed templates:
+
+```bash
+cp backend/.env.example backend/.env
+cp frontend/.env.example frontend/.env.local
+```
 
 ## Installation Methods
 
@@ -111,6 +126,35 @@ curl http://localhost:3001/health
 # Frontend (open in browser)
 open http://localhost:3000
 ```
+
+## Deployment
+
+This is a full-stack app (Next.js + Express + PostgreSQL). GitHub Pages is not suitable.
+
+### Docker Compose
+
+```bash
+docker-compose up --build
+```
+
+Frontend: `http://localhost:3000` · API: `http://localhost:3001`
+
+### Railway (recommended hosted path)
+
+1. Create a project at [railway.app](https://railway.app) and add PostgreSQL.
+2. Deploy `backend/` with `DATABASE_URL`, `PORT=3001`, `NODE_ENV=production`.
+3. Run `npm run db:push` in the backend service.
+4. Deploy `frontend/` with `NEXT_PUBLIC_API_URL` set to the backend public URL.
+
+`railway.json` in the repo root supports Railway deploys.
+
+### Render
+
+Use [render.com](https://render.com) with a PostgreSQL instance, a web service for `backend/`, and a web service for `frontend/`. Set the same env vars as above. See `render.yaml` for a starting blueprint.
+
+### Vercel (frontend only)
+
+Import the `frontend/` directory on [vercel.com](https://vercel.com) and set `NEXT_PUBLIC_API_URL` to a separately hosted backend (Railway/Render/Fly.io).
 
 ## Next Steps
 

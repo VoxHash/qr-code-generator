@@ -27,7 +27,7 @@ No, Docker is optional. You can run the application locally with Node.js and Pos
 
 ### What are the system requirements?
 
-- Node.js 18+
+- Node.js 20+ (CI uses Node 24)
 - PostgreSQL (or Docker for database)
 - 2GB RAM minimum
 - Modern web browser

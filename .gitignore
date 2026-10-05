@@ -8,56 +8,42 @@ node_modules/
 .yarn/install-state.gz
 
 # Testing
-/coverage
+coverage/
 *.lcov
-.nyc_output
+.nyc_output/
 
-# Next.js
-/.next/
-/out/
-/build
-.next
-out
-build
-
-# Production
+# Next.js / build output
+.next/
+out/
+build/
 dist/
 *.tsbuildinfo
 
-# Misc
-.DS_Store
-*.pem
-Thumbs.db
-desktop.ini
-
-# Debug
+# Debug / logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
+logs/
+*.log
 
-# Local env files
+# Local env files (keep *.example templates)
 .env
 .env*.local
 .env.development.local
 .env.test.local
 .env.production.local
-# Note: .env.example should be committed (it's a template)
 
 # Vercel
 .vercel
 
-# TypeScript
-*.tsbuildinfo
+# TypeScript (generated)
 next-env.d.ts
 
-# Prisma
-prisma/migrations/
-
-# IDE
+# IDE / editor
+.idea/
 .vscode/
-.idea
 *.swp
 *.swo
 *~
@@ -70,49 +56,25 @@ prisma/migrations/
 .Trashes
 ehthumbs.db
 Thumbs.db
+desktop.ini
 
-# Logs
-logs
-*.log
-
-# Temporary files
+# Temporary / cache
 *.tmp
 *.temp
-.cache
-.turbo
+.cache/
+.turbo/
 
-# Configuration files
-.editorconfig
-.npmrc
-.nvmrc
-.specstory
+# Cursor / SpecStory local noise
+.specstory/
 .cursorignore
 .cursorindexingignore
 
-# AI-generated documentation
-AI_M/
-
-# AI-generated temporary scripts
-AI_S/
-
-# Python
+# Python virtualenvs (if used locally)
 __pycache__/
 *.py[cod]
 *$py.class
-*.so
 .Python
-env/
 venv/
+.venv/
 ENV/
-.venv
-
-# Temporary scripts
-create-env-example.sh
-create-env-example.py
-fix-*.sh
-resolve-*.sh
-push-*.sh
-reset-git-history.sh
-setup-github-auth.sh
-push-updates-final.sh
-push-all.sh
+env/
