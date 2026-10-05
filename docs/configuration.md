@@ -69,6 +69,8 @@ The `docker-compose.yml` file configures host → container port mappings:
 
 `NEXT_PUBLIC_API_URL` is set to `http://localhost:3011` so the browser can reach the API via the published host port. Inter-container traffic still uses service names (for example `postgres:5432`).
 
+The backend `docker-entrypoint.sh` waits for Postgres (TCP retry loop plus `depends_on` healthcheck), runs `npm run db:push`, then starts the server. Local development without Docker still uses manual `npm run db:push` in `backend/`.
+
 To modify host ports, edit `docker-compose.yml`:
 
 ```yaml

@@ -10,6 +10,8 @@ cd qr-code-generator
 docker-compose up --build
 ```
 
+The backend waits for PostgreSQL, runs `prisma db push`, then starts the API — no manual database setup step.
+
 Visit http://localhost:3010 (API: http://localhost:3011)
 
 ## Local Development

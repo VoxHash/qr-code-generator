@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- Docker Compose backend entrypoint waits for PostgreSQL and runs `prisma db push` on startup (no manual `docker compose exec` step)
+
 ## [0.1.1] - 2026-10-05
 
 ### Added

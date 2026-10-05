@@ -104,6 +104,16 @@ Ensure `NEXT_PUBLIC_API_URL` matches the backend URL in frontend `.env.local`
 
 ## Docker Issues
 
+### Problem: API errors about missing tables after `docker compose up`
+
+**Solution:** The backend should apply the schema on startup via `docker-entrypoint.sh`. Check backend logs for `Syncing Prisma schema` or `db push` failures:
+
+```bash
+docker compose logs backend
+```
+
+If Postgres was not ready, restart the backend: `docker compose restart backend`. For local (non-Docker) installs, run `npm run db:push` in `backend/`.
+
 ### Problem: Docker containers won't start
 
 **Solution:**

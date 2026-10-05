@@ -23,6 +23,8 @@ cd qr-code-generator
 docker-compose up --build
 ```
 
+The backend entrypoint waits for PostgreSQL and runs `prisma db push` before serving requests.
+
 This will start (host ports → container ports):
 - PostgreSQL database on host port 5435 (container 5432)
 - Backend API on host port 3011 (container 3001)

@@ -41,6 +41,8 @@ cd qr-code-generator
 docker-compose up --build
 ```
 
+On first start (and after schema changes), the backend container applies the Prisma schema with `db push` once PostgreSQL is ready. You do not need to run `docker compose exec backend npx prisma db push`.
+
 Then open http://localhost:3010 (API: http://localhost:3011, Postgres host: localhost:5435).
 
 ### Method 2: Local Installation

@@ -39,6 +39,7 @@ cd qr-code-generator
 
 # 2) Start with Docker Compose (Recommended)
 docker-compose up --build
+# Prisma schema is applied automatically on backend startup
 
 # 3) Access the application
 # Frontend: http://localhost:3010
