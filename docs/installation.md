@@ -41,6 +41,8 @@ cd qr-code-generator
 docker-compose up --build
 ```
 
+Then open http://localhost:3010 (API: http://localhost:3011, Postgres host: localhost:5435).
+
 ### Method 2: Local Installation
 
 Best for: Development, customization
@@ -137,7 +139,7 @@ This is a full-stack app (Next.js + Express + PostgreSQL). GitHub Pages is not s
 docker-compose up --build
 ```
 
-Frontend: `http://localhost:3000` · API: `http://localhost:3001`
+Frontend: `http://localhost:3010` · API: `http://localhost:3011` · Postgres host: `localhost:5435`
 
 ### Railway (recommended hosted path)
 

@@ -10,7 +10,7 @@ cd qr-code-generator
 docker-compose up --build
 ```
 
-Visit http://localhost:3000
+Visit http://localhost:3010 (API: http://localhost:3011)
 
 ## Local Development
 

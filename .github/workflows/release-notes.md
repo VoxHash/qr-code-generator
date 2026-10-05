@@ -34,8 +34,9 @@ docker-compose up --build
 
 ### 🚀 Quick Start
 
-- Frontend: http://localhost:3000
-- Backend API: http://localhost:3001
+- Frontend: http://localhost:3010
+- Backend API: http://localhost:3011
+- Postgres (host): localhost:5435
 
 ### 📚 Documentation
 

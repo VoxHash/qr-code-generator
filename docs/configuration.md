@@ -61,19 +61,21 @@ NEXT_PUBLIC_API_URL=http://localhost:3001
 
 ### docker-compose.yml
 
-The `docker-compose.yml` file configures:
+The `docker-compose.yml` file configures host → container port mappings:
 
-- **PostgreSQL**: Database service on port 5432
-- **Backend**: API server on port 3001
-- **Frontend**: Web application on port 3000
+- **PostgreSQL**: `5435:5432`
+- **Backend**: `3011:3001`
+- **Frontend**: `3010:3000`
 
-To modify ports, edit `docker-compose.yml`:
+`NEXT_PUBLIC_API_URL` is set to `http://localhost:3011` so the browser can reach the API via the published host port. Inter-container traffic still uses service names (for example `postgres:5432`).
+
+To modify host ports, edit `docker-compose.yml`:
 
 ```yaml
 services:
   backend:
     ports:
-      - "3001:3001"  # Change first number to change host port
+      - "3011:3001"  # Change first number to change host port
 ```
 
 ## QR Code Settings

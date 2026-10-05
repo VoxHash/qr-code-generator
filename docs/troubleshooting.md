@@ -28,7 +28,9 @@ Common issues and solutions for QR Code Generator.
 
 ### Problem: Port 3000 or 3001 is already in use
 
-**Solution:**
+**Docker Compose:** published host ports are `3010` (frontend), `3011` (API), and `5435` (Postgres). If those conflict, change the left-hand side of each `ports:` mapping in `docker-compose.yml` and update `NEXT_PUBLIC_API_URL` to match the API host port.
+
+**Local npm (`npm run dev`):**
 1. Find the process using the port:
    ```bash
    lsof -i :3000

@@ -23,12 +23,12 @@ cd qr-code-generator
 docker-compose up --build
 ```
 
-This will start:
-- PostgreSQL database on port 5432
-- Backend API on port 3001
-- Frontend application on port 3000
+This will start (host ports → container ports):
+- PostgreSQL database on host port 5435 (container 5432)
+- Backend API on host port 3011 (container 3001)
+- Frontend application on host port 3010 (container 3000)
 
-Access the application at http://localhost:3000
+Access the application at http://localhost:3010 · API: http://localhost:3011
 
 ### Option 2: Local Development
 
